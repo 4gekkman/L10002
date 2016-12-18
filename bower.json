@@ -1,0 +1,14 @@
+{
+  "name": "L10002",
+  "dependencies": {
+		"4gekkman-bower-jslib1": "latest"
+	},
+  "mains": {
+    "css": [
+			"public/L10002/css/c.css"
+		],
+    "js": [
+			"public/L10002/js/j.js"
+		]
+  }
+}
