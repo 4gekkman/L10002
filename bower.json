@@ -1,7 +1,24 @@
 {
   "name": "L10002",
   "dependencies": {
-		"4gekkman-bower-jslib1": "latest"
+		"4gekkman-bower-jslib1": "latest",
+		"bootstrap": "latest",
+		"Font-Awesome": "latest",
+		"ionicons": "latest",
+		"jquery": "~2.0",
+		"moment": "latest",
+		"knockoutjs": "latest",
+		"history.js": "latest",
+		"loaders.css": "latest",
+		"socket.io-client": "latest",
+		"perfect-scrollbar": "latest",
+		"d3": "latest",
+		"4gekkman-bower-animsition": "latest",
+		"momentjs": "latest",
+		"mdi": "latest",
+		"beemuse": "latest",
+		"tooltipster": "latest",
+		"smooth-scroll.js": "latest"
 	},
   "mains": {
     "css": [

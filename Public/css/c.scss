@@ -28,21 +28,21 @@
 //-----------//
 @font-face {
     font-family: 'Effra';
-    src: url('/public/L10002/assets/EffraNormal/DaltonMaagEffra.eot');
-    src: url('/public/L10002/assets/EffraNormal/DaltonMaagEffra.eot') format('embedded-opentype'),
-         url('/public/L10002/assets/EffraNormal/DaltonMaagEffra.woff2') format('woff2'),
-         url('/public/L10002/assets/EffraNormal/DaltonMaagEffra.woff') format('woff'),
-         url('/public/L10002/assets/EffraNormal/DaltonMaagEffra.ttf') format('truetype'),
-         url('/public/L10002/assets/EffraNormal/DaltonMaagEffra.svg#Effra') format('svg');
+    src: url('/public/L10002/assets/fonts/EffraNormal/DaltonMaagEffra.eot');
+    src: url('/public/L10002/assets/fonts/EffraNormal/DaltonMaagEffra.eot') format('embedded-opentype'),
+         url('/public/L10002/assets/fonts/EffraNormal/DaltonMaagEffra.woff2') format('woff2'),
+         url('/public/L10002/assets/fonts/EffraNormal/DaltonMaagEffra.woff') format('woff'),
+         url('/public/L10002/assets/fonts/EffraNormal/DaltonMaagEffra.ttf') format('truetype'),
+         url('/public/L10002/assets/fonts/EffraNormal/DaltonMaagEffra.svg#Effra') format('svg');
 }
 @font-face {
     font-family: 'EffraBold';
-    src: url('/public/L10002/assets/EffraBold/DaltonMaagEffraBold.eot');
-    src: url('/public/L10002/assets/EffraBold/DaltonMaagEffraBold.eot') format('embedded-opentype'),
-         url('/public/L10002/assets/EffraBold/DaltonMaagEffraBold.woff2') format('woff2'),
-         url('/public/L10002/assets/EffraBold/DaltonMaagEffraBold.woff') format('woff'),
-         url('/public/L10002/assets/EffraBold/DaltonMaagEffraBold.ttf') format('truetype'),
-         url('/public/L10002/assets/EffraBold/DaltonMaagEffraBold.svg#EffraBold') format('svg');
+    src: url('/public/L10002/assets/fonts/EffraBold/DaltonMaagEffraBold.eot');
+    src: url('/public/L10002/assets/fonts/EffraBold/DaltonMaagEffraBold.eot') format('embedded-opentype'),
+         url('/public/L10002/assets/fonts/EffraBold/DaltonMaagEffraBold.woff2') format('woff2'),
+         url('/public/L10002/assets/fonts/EffraBold/DaltonMaagEffraBold.woff') format('woff'),
+         url('/public/L10002/assets/fonts/EffraBold/DaltonMaagEffraBold.ttf') format('truetype'),
+         url('/public/L10002/assets/fonts/EffraBold/DaltonMaagEffraBold.svg#EffraBold') format('svg');
 }
 * {
   font-family: Effra, "PT Sans", Sans-Serif;
@@ -269,23 +269,29 @@
 // 1. Все переменные стилей //
 /*--------------------------//
 
-  1.1. Переменные цветов
+  // 1.1. Размеры шрифтов
+  1.2. Переменные цветов
 
 //--------------------------*/
 
-  // 1.1. Переменные цветов
+  // 1.1. Размеры шрифтов
 
     // Общие
-    $background:          #26262c;  // Фон
-    $mainFontColor:       #fff;     // Главный общий цвет шрифта
+    $fonts_size:              13px;     // Общий размер шрифта на сайте
+
+  // 1.2. Переменные цветов
+
+    // Общие
+    $color_body_bg:           #26262c;  // Фон
+    $color_mainFontColor:     #fff;     // Главный общий цвет шрифта
 
     // Скролл бар
-    $scrollBarBg:         #16161b;  // Фон скролл бара
-    $scrollBarThumb:      #1c1c22;  // Цвет бегунка скролл бара
+    $color_scrollBarBg:       #1c1c22;  // Фон скролл бара
+    $color_scrollBarThumb:    #16161b;  // Цвет бегунка скролл бара
 
     // Шапка сайта
-    $header_height:       50px;     // Фон шапки сайта
-    $header_bg:           #16161b;  // Фон шапки сайта
+    $color_header_height:     50px;     // Фон шапки сайта
+    $color_header_bg:         #16161b;  // Фон шапки сайта
 
 
 
@@ -299,8 +305,9 @@
     padding: 0;
     margin: 0;
     height: 100%;
-    background: $background;
-    color: $mainFontColor;
+    background: $color_body_bg;
+    color: $color_mainFontColor;
+    font-size: $fonts_size;
   }
 
   // Отменить влияние margin, padding и border на ширину всех CSS-элементов
@@ -315,52 +322,27 @@
 
   // Контент документа сдвинуть вниз на высоту шапки
   .content {
-    margin-top: $header_height;
+    padding-top: $color_header_height;
   }
 
   // Кастомные стили для скроллбара
-
-#style-1::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
-}
-
-#style-1::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
-}
-
-#style-1::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
-}
-
-/*
- *  STYLE 2
- */
-
-body::-webkit-scrollbar-track
-{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: $scrollBarBg;
-}
-body::-webkit-scrollbar
-{
-  width: 12px;
-  background-color: $scrollBarBg;
-}
-body::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: $scrollBarThumb;
-}
+  body::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: $color_scrollBarBg;
+  }
+  body::-webkit-scrollbar
+  {
+    width: 12px;
+    background-color: $color_scrollBarBg;
+  }
+  body::-webkit-scrollbar-thumb
+  {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: $color_scrollBarThumb;
+  }
 
 
 //------------------------------------//
@@ -369,7 +351,11 @@ body::-webkit-scrollbar-thumb
 Оглавление
 
   3.1. Общие стили шапки
-
+  3.2. Область шапки над чатом и гл.меню (для логотипа)
+  3.3. Область шапки справа от логотипа
+    3.3.1. Область шапки справа от логотипа
+    3.3.2. Заголовок документа
+    3.3.3. Блок элементов управления в шапке
 
 //------------------------------------*/
 
@@ -379,13 +365,97 @@ body::-webkit-scrollbar-thumb
   .site-header {
     position: fixed; top: 0; left: 0;
     height: 50px; width: 100%;
-    background: $header_bg;
-
+    min-width: 768px;
+    background: $color_header_bg;
+    box-shadow: 0 2px 2px 0 RGBA(0,0,0,.5);
   }
 
+  //-------------------------------------------------------//
+  // 3.2. Область шапки над чатом и гл.меню (для логотипа) //
+  //-------------------------------------------------------//
 
+    // Общий стиль области
+    .site-header .area1 {
+      width: 300px; height: 100%;
+      background: #333;
+    }
 
+    // Логотип
+    .site-header .area1 .logo img {
+      height: 20px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 15px;
+    }
 
+  //---------------------------------------//
+  // 3.3. Область шапки справа от логотипа //
+  //---------------------------------------//
+
+    //-----------------------------------------//
+    // 3.3.1. Область шапки справа от логотипа //
+    //-----------------------------------------//
+    .site-header .area2 {
+      position: absolute; right: 0; top: 0; left: 300px;
+      height: 100%;
+      background: #222;
+    }
+
+    //----------------------------//
+    // 3.3.2. Заголовок документа //
+    //----------------------------//
+    .site-header .area2 .area2-1 {
+      position: absolute; left: 0; top: 0;
+      width: 100px; height: 100%;
+      text-align: left;
+      line-height: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #444;
+    }
+
+    //------------------------------------------//
+    // 3.3.3. Блок элементов управления в шапке //
+    //------------------------------------------//
+
+      // Общие стили
+      .site-header .area2 .area2-2 {
+        position: absolute; right: 0; top: 0; left: 100px;
+        height: 100%;
+        background: #111;
+      }
+
+      // Блок эл-в управления в правой части
+
+        // Общие стили
+        .site-header .area2 .area2-2 .rightblock {
+          position: absolute; right: 0; top: 0;
+          height: 100%;
+          line-height: 50px;
+          text-align: center;
+          min-width: 100px;
+        }
+
+        // Кнопка "Log in"
+        .site-header .area2 .area2-2 .rightblock .login_button {
+          display: inline-block;
+          vertical-align: middle;
+          height: 30px;
+          line-height: 30px;
+          width: 80%;
+          border: 1px solid #fff;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all .2s ease;
+        }
+        .site-header .area2 .area2-2 .rightblock .login_button:hover {
+          background: #fff;
+          color: #000;
+        }
+        .site-header .area2 .area2-2 .rightblock .login_button i {
+          vertical-align: baseline;
+          margin-right: 3px;
+        }
 
 
 
