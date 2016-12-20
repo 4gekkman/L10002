@@ -94,7 +94,38 @@ var LayoutModelProto = { constructor: function(LayoutModelFunctions) {
 
 			// А4.2.1. Подключение ws1 //
 			//-------------------------//
-//			self.websocket.ws1 = io('http://'+server.settings.websocket_server_ip+':6001');
+
+				// 1] Убрать из websocket_server лишние порты
+				// - Они появляются при работе через browser-sync
+				layout_data.data.websocket_server = layout_data.data.websocket_server.replace(/:\d+.*$/i, "");
+				layout_data.data.websocket_server = layout_data.data.websocket_server + ':6001';
+
+				// 2] Подключить ws1
+				self.websocket.ws1 = io(layout_data.data.websocket_server);
+
+		//--------------------------------------------------------------//
+		// А4.3. Назначение обработчиков сообщений с websocket-серверов //
+		//--------------------------------------------------------------//
+
+			// A4.3.1. Обработка сообщений об успешной аутентификации через Steam //
+			//--------------------------------------------------------------------//
+			self.websocket.ws1.on(layout_data.data.websockets_channel, function(message) {
+
+				// 1] Сообщить об успешной аутентификации через Steam
+				toastr.info("Перезагружаю документ...", "Успешный вход через Steam", {
+					timeOut: 					"9999999999999",
+					extendedTimeOut: 	"9999999999999"
+				});
+
+				// 2] Перезагрузить документ через 3 секунды
+				setTimeout(function(){
+					location.reload();
+				}, 3000);
+
+			});
+
+
+
 
 
 		//--------------------------------------------------------------//
@@ -242,10 +273,10 @@ var LayoutModelProto = { constructor: function(LayoutModelFunctions) {
 			if(!ko.computedContext.isInitial()) return;
 
 			// n.2] Если сервер не прислал данные, завершить
-			if(!server || !server.data || !server.data.auth) return;
+			if(!layout_data || !layout_data.data || !layout_data.data.auth) return;
 
 			// n.3] Распаковать данные, и проверить
-			var auth = JSON.parse(server.data.auth);
+			var auth = JSON.parse(layout_data.data.auth);
 			if((!auth.is_anon && auth.is_anon != 0) || !auth.user || !auth.auth) return;
 
 			// n.4] Наполнить m.s0.auth.is_anon
@@ -381,12 +412,35 @@ var LayoutModelProto = { constructor: function(LayoutModelFunctions) {
 		//-------------------------------------------------------------//
 		if(!ko.computedContext.isInitial()) return;
 
-		//-------------------------------------------------------------//
-		// X1.2. ... //
-		//-------------------------------------------------------------//
+		//-----------------------------------------------------//
+		// X1.2. Настроить toastr (не блокирующие уведомления) //
+		//-----------------------------------------------------//
+		// - При клике в любом месте, кроме как на самой панели.
+		(function(){
 
-			// ... код ...
+			// 1] Настроить toastr
+			toastr.options = {
+				"closeButton": true,
+				"debug": false,
+				"newestOnTop": false,
+				"progressBar": false,
+				"positionClass": "toast-bottom-right",
+				"preventDuplicates": false,
+				"onclick": null,
+				"showDuration": "777",
+				"hideDuration": "1777",
+				"timeOut": "7777",
+				"extendedTimeOut": "7777",
+				"showEasing": "swing",
+				"hideEasing": "linear",
+				"showMethod": "fadeIn",
+				"hideMethod": "fadeOut"
+			};
 
+			// 2] Не закрывать тосты при клике
+			toastr.options.tapToDismiss = false;
+
+		})();
 
 
 	});

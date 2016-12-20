@@ -18,7 +18,10 @@
 		"mdi": "latest",
 		"beemuse": "latest",
 		"tooltipster": "latest",
-		"smooth-scroll.js": "latest"
+		"smooth-scroll.js": "latest",
+		"4gekkman-bower-cssgrids": "latest",
+		"toastr": "latest",
+		"knockout-mapping": "latest"
 	},
   "mains": {
     "css": [
