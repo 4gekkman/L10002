@@ -143,8 +143,8 @@ var LayoutModelFunctions = { constructor: function(self) { var f = this;
 
 			// 1] Отправить запрос
 			ajaxko(self, {
-				url:          window.location.host + "/layouts/l10002",
-				key: 	    		"L10002:1",
+				url:          window.location.host + "/layouts/l10003",
+				key: 	    		"L10003:1",
 				from: 		    "ajaxko",
 				data: 		    {},
 				prejob:       function(config, data, event){
